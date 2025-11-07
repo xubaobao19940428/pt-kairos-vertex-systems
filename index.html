@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			background-color: #000;
+			display: flex;
+			justify-content: center;
+		}
+		.container {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-bottom: 50px;
+		}
+		.container-header {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 10;
+		}
+		.container-header-content {
+			width: 100%;
+			position: absolute;
+			top: 20px;
+			height: 70px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 10%;
+			box-sizing: border-box;
+		}
+		.container-header-content-left {
+			height: 60px;
+		}
+		.container-header-content-right {
+			display: flex;
+			align-items: center;
+			gap: 72px;
+		}
+		a {
+			color: #fff;
+			font-size: 16px;
+			font-weight: 600;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		.contact-button {
+			padding: 13px 25px;
+			border-radius: 50px;
+			background-color: #fff;
+			color: #000;
+			font-size: 16px;
+			font-weight: 600;
+			text-decoration: none;
+		}
+		.concact-us {
+			width: 100%;
+			height: 100px;
+			background-color: transparent;
+			position: absolute;
+			top: 50%;
+			cursor: pointer;
+			display: block;
+		}
+		.img {
+			width: 100%;
+		}
+		.img-6 {
+			margin-top: 109px;
+			width: auto;
+			height: 24px;
+		}
+		@media screen and (max-width: 1000px) {
+            .container-header-content {
+                padding:0 2%;
+                box-sizing: border-box;
+            }
+			.container-header-content-left {
+				height: 20px;
+			}
+			a {
+				font-size: 10px;
+			}
+			.contact-button {
+				padding: 5px 10px;
+				border-radius: 50px;
+				background-color: #fff;
+				color: #000;
+				font-size: 10px;
+				font-weight: 600;
+				text-decoration: none;
+			}
+            .container-header-content-right{
+                gap:10px;
+            }
+            .img-6{
+                height: 10px;
+            }
+		}
+	</style>
+	<body>
+		<div class="container">
+			<div class="container-header">
+				<div class="container-header-content">
+					<img src="./assets//logo.png" alt="" class="container-header-content-left" />
+					<div class="container-header-content-right">
+						<a href="#about">About Us</a>
+						<a href="#contact">Contact Us</a>
+						<a href="#contact" class="contact-button">Contact Us</a>
+					</div>
+				</div>
+				<img src="./assets/img-1.png" alt="" class="img" />
+				<a class="concact-us" href="#contact">
+					<div class="concact-us-content"></div>
+				</a>
+			</div>
+
+			<img src="./assets/img-2.png" alt="" class="img" />
+			<img src="./assets/img-3.png" alt="" class="img" />
+			<img src="./assets/img-4.png" alt="" class="img" id="about" />
+			<img src="./assets/img-5.png" alt="" class="img" id="contact" />
+			<img src="./assets/img-6.png" alt="" class="img img-6" />
+		</div>
+	</body>
+	<script>
+		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault()
+				const targetId = this.getAttribute('href')
+				document.querySelector(targetId).scrollIntoView({
+					behavior: 'smooth',
+				})
+			})
+		})
+	</script>
+</html>
